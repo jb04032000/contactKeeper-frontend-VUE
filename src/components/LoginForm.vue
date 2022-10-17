@@ -50,7 +50,7 @@ const onSubmit = () => {
           />
         </div>
 
-        <Button type="submit" class="btn btn-info" :disabled="state.loading">
+        <button type="submit" class="btn btn-info" :disabled="state.loading">
           <span v-if="state.loading">
             <span
               class="spinner-border spinner-border-sm"
@@ -60,7 +60,7 @@ const onSubmit = () => {
             Loading...
           </span>
           <span v-else> Login </span>
-        </Button>
+        </button>
       </form>
     </div>
   </div>
