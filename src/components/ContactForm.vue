@@ -1,6 +1,6 @@
 <script setup>
 import useContactForm from "../components/composables/useContactForm";
-import Helpers from "../utils/helpers.vue";
+import Spinner from "../utils/Spinner.vue";
 const { onSubmit, clearCurrentContact, state, type, phone, email, name } =
   useContactForm();
 </script>
@@ -82,12 +82,7 @@ const { onSubmit, clearCurrentContact, state, type, phone, email, name } =
       <div class="d-flex justify-content-between">
         <button type="submit" class="btn btn-info" :disabled="state.loading">
           <span v-if="state.loading">
-            <span
-              class="spinner-border spinner-border-sm"
-              role="status"
-              aria-hidden="true"
-            ></span>
-            Loading...
+            <Spinner />
           </span>
           <span v-else>
             {{ state.currentContact ? "Update Contact" : "Add Contact" }}

@@ -2,6 +2,7 @@
 import useContactList from "./composables/useContactList";
 import ContacCard from "./ContacCard.vue";
 import ContacFilter from "./ContacFilter.vue";
+import Spinner from "../utils/Spinner.vue";
 
 const { contacts, state } = useContactList();
 </script>
@@ -11,12 +12,7 @@ const { contacts, state } = useContactList();
     v-if="state.loading"
     class="d-flex justify-content-center align-items-center"
   >
-    <span
-      class="spinner-border spinner-border-sm"
-      role="status"
-      aria-hidden="true"
-    ></span>
-    Loading...
+    <Spinner />
   </div>
   <div v-else>
     <ContacFilter v-if="contacts.length" />

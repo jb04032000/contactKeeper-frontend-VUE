@@ -2,6 +2,7 @@
 import { storeToRefs } from "pinia";
 import { ref } from "vue";
 import { useAuthStore } from "../stores/auth.store";
+import Spinner from "../utils/Spinner.vue";
 
 const authStore = useAuthStore();
 const { state } = storeToRefs(authStore);
@@ -52,12 +53,7 @@ const onSubmit = () => {
 
         <button type="submit" class="btn btn-info" :disabled="state.loading">
           <span v-if="state.loading">
-            <span
-              class="spinner-border spinner-border-sm"
-              role="status"
-              aria-hidden="true"
-            ></span>
-            Loading...
+            <Spinner />
           </span>
           <span v-else> Login </span>
         </button>
