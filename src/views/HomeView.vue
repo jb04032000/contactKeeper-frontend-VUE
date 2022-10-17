@@ -8,12 +8,14 @@ useHomepage();
 
 <template>
   <main>
-    <div class="container pt-5 vw-100" style="overflowx: hidden">
+    <div class="container pt-5 vw-100">
       <div class="row py-2 px-2 gx-5 gy-3 d-flex justify-content-evenly">
-        <div class="col-md-5 col-lg-4">
-          <ContactForm />
+        <div class="col-md-5 col-lg-4 contactFormContainer">
+          <transition name="list" appear>
+            <ContactForm />
+          </transition>
         </div>
-        <div class="col-md-5 col-lg-4 mb-2 pb-3" style="overflowx: hidden">
+        <div class="col-md-5 col-lg-4 mb-2 pb-3">
           <ContactList />
         </div>
       </div>

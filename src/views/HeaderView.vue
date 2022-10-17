@@ -8,8 +8,8 @@ const { state } = storeToRefs(authStore);
 </script>
 
 <template>
-  <header>
-    <nav class="navbar navbar-expand-lg py-3 navbar-dark bg-dark">
+  <header class="mb-5">
+    <nav class="navbar navbar-expand-lg py-3 navbar-dark bg-dark fixed-top">
       <div class="container">
         <RouterLink to="/" class="navbar-brand">
           <img
