@@ -23,12 +23,13 @@ const { contacts, state } = useContactList();
     <transition name="switch" mode="out-in">
       <div>
         <transition-group name="list" appear>
-          <ContacCard
-            v-if="contacts"
-            v-for="contact in contacts"
-            :key="contact?.id"
-            :contact="contact"
-          />
+          <div v-if="contacts">
+            <ContacCard
+              v-for="contact in contacts"
+              :key="contact?.id"
+              :contact="contact"
+            />
+          </div>
         </transition-group>
       </div>
     </transition>
