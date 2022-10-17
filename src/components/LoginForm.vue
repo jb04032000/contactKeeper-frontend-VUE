@@ -1,8 +1,10 @@
 <script setup>
+import { storeToRefs } from "pinia";
 import { ref } from "vue";
 import { useAuthStore } from "../stores/auth.store";
 
 const authStore = useAuthStore();
+const { state } = storeToRefs(authStore);
 const { loginUser } = authStore;
 
 const email = ref("");
@@ -48,7 +50,17 @@ const onSubmit = () => {
           />
         </div>
 
-        <Button type="submit" class="btn btn-info"> Login </Button>
+        <Button type="submit" class="btn btn-info" :disabled="state.loading">
+          <span v-if="state.loading">
+            <span
+              class="spinner-border spinner-border-sm"
+              role="status"
+              aria-hidden="true"
+            ></span>
+            Loading...
+          </span>
+          <span v-else> Login </span>
+        </Button>
       </form>
     </div>
   </div>

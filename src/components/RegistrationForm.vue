@@ -1,10 +1,12 @@
 <script setup>
+import { storeToRefs } from "pinia";
 import { ref } from "vue";
 import { useAuthStore } from "../stores/auth.store";
 import alertMessage from "../utils/alertMessages";
 import Notification from "../utils/Notification";
 
 const authStore = useAuthStore();
+const { state } = storeToRefs(authStore);
 const { registerUser } = authStore;
 
 const name = ref("");
@@ -87,7 +89,17 @@ const onSubmit = () => {
           />
         </div>
 
-        <button type="submit" class="btn btn-info">Register</button>
+        <button type="submit" class="btn btn-info" :disabled="state.loading">
+          <span v-if="state.loading">
+            <span
+              class="spinner-border spinner-border-sm"
+              role="status"
+              aria-hidden="true"
+            ></span>
+            Loading...
+          </span>
+          <span v-else> Register </span>
+        </button>
       </form>
     </div>
   </div>

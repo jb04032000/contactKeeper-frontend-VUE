@@ -9,6 +9,41 @@ const { deleteContact, setCurrentContact } = contactStore;
 </script>
 
 <template>
+  <div
+    class="modal fade"
+    id="confirmDelete"
+    tabindex="-1"
+    aria-labelledby="confirmDeleteLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="confirmDeleteLabel">Alert!</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">Are You sure want to delete this Contact?</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">
+            Cancel
+          </button>
+          <button
+            class="btn btn-danger"
+            data-bs-dismiss="modal"
+            @click="deleteContact(contact.id)"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="w-100 pt-2">
     <div class="card shadow border-0">
       <div class="card-header d-flex justify-content-between">
@@ -44,7 +79,11 @@ const { deleteContact, setCurrentContact } = contactStore;
           >
             Edit
           </button>
-          <button class="btn btn-danger" @click="deleteContact(contact.id)">
+          <button
+            class="btn btn-danger"
+            data-bs-toggle="modal"
+            data-bs-target="#confirmDelete"
+          >
             Delete
           </button>
         </div>

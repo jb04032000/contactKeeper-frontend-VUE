@@ -14,5 +14,5 @@ export default function useContactList() {
     }
     contacts.value = [...state.value.contacts.sort((a, b) => b.id - a.id)];
   });
-  return toRefs({ contacts });
+  return toRefs({ contacts, state });
 }

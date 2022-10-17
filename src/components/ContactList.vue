@@ -3,23 +3,36 @@ import useContactList from "./composables/useContactList";
 import ContacCard from "./ContacCard.vue";
 import ContacFilter from "./ContacFilter.vue";
 
-const { contacts } = useContactList();
+const { contacts, state } = useContactList();
 </script>
 
 <template>
-  <ContacFilter v-if="contacts" />
-  <transition name="switch" mode="out-in">
-    <div>
-      <transition-group name="list" appear>
-        <ContacCard
-          v-if="contacts"
-          v-for="contact in contacts"
-          :key="contact?.id"
-          :contact="contact"
-        />
-      </transition-group>
-    </div>
-  </transition>
+  <div
+    v-if="state.loading"
+    class="d-flex justify-content-center align-items-center"
+  >
+    <span
+      class="spinner-border spinner-border-sm"
+      role="status"
+      aria-hidden="true"
+    ></span>
+    Loading...
+  </div>
+  <div v-else>
+    <ContacFilter v-if="contacts.length" />
+    <transition name="switch" mode="out-in">
+      <div>
+        <transition-group name="list" appear>
+          <ContacCard
+            v-if="contacts"
+            v-for="contact in contacts"
+            :key="contact?.id"
+            :contact="contact"
+          />
+        </transition-group>
+      </div>
+    </transition>
+  </div>
 </template>
 
 <style scoped>

@@ -1,5 +1,6 @@
 <script setup>
 import useContactForm from "../components/composables/useContactForm";
+import Helpers from "../utils/helpers.vue";
 const { onSubmit, clearCurrentContact, state, type, phone, email, name } =
   useContactForm();
 </script>
@@ -79,13 +80,24 @@ const { onSubmit, clearCurrentContact, state, type, phone, email, name } =
       </div>
 
       <div class="d-flex justify-content-between">
-        <button type="submit" class="btn btn-info">
-          {{ state.currentContact ? "Update Contact" : "Add Contact" }}
+        <button type="submit" class="btn btn-info" :disabled="state.loading">
+          <span v-if="state.loading">
+            <span
+              class="spinner-border spinner-border-sm"
+              role="status"
+              aria-hidden="true"
+            ></span>
+            Loading...
+          </span>
+          <span v-else>
+            {{ state.currentContact ? "Update Contact" : "Add Contact" }}
+          </span>
         </button>
         <button
           v-if="state.currentContact"
           @click="clearCurrentContact()"
           class="btn btn-warning"
+          :disabled="state.loading"
         >
           Cancel update
         </button>
