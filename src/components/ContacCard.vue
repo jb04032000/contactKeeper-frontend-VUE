@@ -47,7 +47,12 @@ const { deleteContact, setCurrentContact } = contactStore;
   <div class="w-100 pt-2">
     <div class="card shadow border-0">
       <div class="card-header d-flex justify-content-between">
-        <span v-if="contact.name" class="fw-bold">{{ contact.name }}</span>
+        <span
+          v-if="contact.name"
+          class="fw-bold text-truncate"
+          style="max-width: 65%"
+          >{{ contact.name }}</span
+        >
         <span
           v-if="contact.type"
           class="badge text-capitalize"
