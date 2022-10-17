@@ -44,7 +44,7 @@ const { deleteContact, setCurrentContact } = contactStore;
           >
             Edit
           </button>
-          <button class="btn btn-dark" @click="deleteContact(contact.id)">
+          <button class="btn btn-danger" @click="deleteContact(contact.id)">
             Delete
           </button>
         </div>
