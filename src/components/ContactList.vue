@@ -15,17 +15,15 @@ const { contacts, state } = useContactList();
     <Spinner />
   </div>
   <div v-else>
-    <ContacFilter v-if="contacts.length" />
-    <transition name="switch" mode="out-in">
-      <div>
+    <ContacFilter v-if="contacts" />
+    <transition name="switch" mode="out-in" appear>
+      <div v-if="contacts">
         <transition-group name="list" appear>
-          <div v-if="contacts">
-            <ContacCard
-              v-for="contact in contacts"
-              :key="contact?.id"
-              :contact="contact"
-            />
-          </div>
+          <ContacCard
+            v-for="contact in contacts"
+            :key="contact?.id"
+            :contact="contact"
+          />
         </transition-group>
       </div>
     </transition>

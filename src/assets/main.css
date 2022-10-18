@@ -38,11 +38,16 @@
     }
     .contactForm{
       position:fixed;
+      width: 20rem;
     }
    }
   
 /* Large devices (desktops, 992px and up) */
-  @media (min-width: 992px) { }
+  @media (min-width: 992px) {
+    .contactForm{
+      width: 25rem;
+    }
+   }
   
 /* X-Large devices (large desktops, 1200px and up) */
   @media (min-width: 1200px) { }

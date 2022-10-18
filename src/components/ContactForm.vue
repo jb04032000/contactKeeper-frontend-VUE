@@ -7,9 +7,9 @@ const { onSubmit, clearCurrentContact, state, type, phone, email, name } =
 
 <template>
   <div
-    className="d-flex flex-column justify-content-center shadow py-4 px-4 contactForm"
+    className="d-flex flex-column justify-content-center shadow py-4 px-4 contactForm "
   >
-    <div className="fs-3 fw-bold mb-4 h2 m-auto">
+    <div className="fs-3 fw-bold mb-4 h2 m-auto ">
       {{ state.currentContact ? "Update Contact" : "Add Contact" }}
     </div>
     <form class="fw-bold" @submit.prevent="onSubmit">
