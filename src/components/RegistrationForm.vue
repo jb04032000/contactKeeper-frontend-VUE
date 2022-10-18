@@ -28,7 +28,10 @@ const onSubmit = () => {
 </script>
 
 <template>
-  <div class="container d-flex justify-content-center align-items-center mt-5">
+  <div
+    class="container d-flex justify-content-center align-items-center"
+    style="margin-top: 10rem"
+  >
     <div
       class="shadow p-5 d-flex flex-column justify-content-center align-items-center"
     >

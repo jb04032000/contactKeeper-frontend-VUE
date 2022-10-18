@@ -10,7 +10,7 @@ const { deleteContact, setCurrentContact } = contactStore;
 
 <template>
   <div
-    class="modal fade"
+    class="modal fade "
     id="confirmDelete"
     tabindex="-1"
     aria-labelledby="confirmDeleteLabel"
@@ -44,7 +44,7 @@ const { deleteContact, setCurrentContact } = contactStore;
     </div>
   </div>
 
-  <div class="w-100 pt-2">
+  <div class="w-100 pt-2 text-dark">
     <div class="card shadow border-0">
       <div class="card-header d-flex justify-content-between">
         <span

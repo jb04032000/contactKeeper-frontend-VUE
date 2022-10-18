@@ -1,10 +1,12 @@
 <script setup>
 import { RouterView } from "vue-router";
 import HeaderView from "./views/HeaderView.vue";
+import ThemeButton from "./components/ThemeButton.vue";
 </script>
 
 <template>
   <HeaderView />
+  <ThemeButton />
   <RouterView />
   <!-- <RouterView v-slot="{ Component }">
     <transition name="slide" mode="out-in">
