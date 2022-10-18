@@ -15,9 +15,9 @@ const { contacts, state } = useContactList();
     <Spinner />
   </div>
   <div v-else>
-    <ContacFilter v-if="contacts" />
+    <ContacFilter v-if="contacts.length > 0" />
     <transition name="switch" mode="out-in" appear>
-      <div v-if="contacts">
+      <div v-if="contacts.length > 0">
         <transition-group name="list" appear>
           <ContacCard
             v-for="contact in contacts"
