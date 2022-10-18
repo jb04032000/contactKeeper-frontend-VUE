@@ -19,11 +19,13 @@ const { contacts, state } = useContactList();
     <transition name="switch" mode="out-in" appear>
       <div v-if="contacts.length > 0">
         <transition-group name="list" appear>
-          <ContacCard
-            v-for="contact in contacts"
-            :key="contact?.id"
-            :contact="contact"
-          />
+          <div>
+            <ContacCard
+              v-for="contact in contacts"
+              :key="contact?.id"
+              :contact="contact"
+            />
+          </div>
         </transition-group>
       </div>
     </transition>
